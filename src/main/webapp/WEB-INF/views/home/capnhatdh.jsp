@@ -73,12 +73,12 @@
 				
 				<form:input class="frm" readonly="true" path="tongTien" />
 			</div>
+			<form:hidden path="diachi" />
 			<div class="form-group">
 				<label class="lb">Trạng thái</label>
 				
 				<c:if test="${donhang.trangThai == 0}">
 				<form:select path="trangThai">
-				<option value="0">Chờ xác nhận</option>
 				<option value="-1">Hủy đơn</option>
 				</form:select><br>
 				<br><button style="margin-left: 98px; background-color: #2e6f51; margin-top: 2px; color: white; width: 30%;" class=""><b>Xác nhận</b></button>

@@ -13,7 +13,13 @@
 <body>
 	<jsp:include page="firstpage.jsp"></jsp:include>
 
-	<h2 style="text-align: center; margin-top: 30px">Thương hiệu: ${sanphams[0].thuongHieuId}</h2>
+	<h2 style="text-align: center;color: brown; margin-top: 30px">Thương hiệu:
+	<c:forEach var="o" items="${thuonghieus}">
+	<c:choose>
+				<c:when test="${sanphams[0].thuongHieuId==o.id}">${o.ten}</c:when>
+				</c:choose>
+	</c:forEach>
+	</h2>
 		<div class="ser-t">
 				<b></b>
 				<span><i></i></span>

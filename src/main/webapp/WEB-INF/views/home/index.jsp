@@ -12,6 +12,7 @@
 </head>
 <body>
 	<jsp:include page="firstpage.jsp"></jsp:include>
+	
 	<h1 style="text-align: center ; margin-top: 12px">TẤT CẢ SẢN PHẨM</h1>
 	<br>
 	<div class="ser-t">
@@ -77,13 +78,66 @@
 </div>
 </div>
 </c:forEach>
+<h2 style="text-align: center; color: brown; margin-top: 30px">Sản phẩm bán chạy
+	</h2>
+		<br>
+		<div class="ser-t">
+				<b></b>
+				<span><i></i></span>
+				<b class="line"></b>
+			</div>
+	
+	<hr width="60%">
+	<div class="container-fluid" style="margin-bottom: 20px">
+		<div class="row">
+			<c:forEach var="p" items="${sanphams}">
+			<c:forEach var="b" items="${banchays}">
+			<c:if test="${p.id==b.idhh}">
+						<div class="col-sm-4" style="background-color: white;">
+							<p>
+								<a href="home/sanpham/${p.id}.html" style="color: black;"><img
+									src="./images/${p.anh}" style="width: 60%; margin-left: 98px">
+								</a>
+							</p>
+							<p
+								style="text-align: center; margin-left: 60px; margin-right: 50px">
+								<a href="home/sanpham/${p.id}.html" style="color: black;">${p.ten}
+								</a>
+							</p>
 
-	<div class="dropdown" style="margin-left: 100px">
-						<a href="home/thuonghieu.html"
-							style="color: white; text-decoration: none">Thương hiệu</a>
-					</div>
-	<br>
-	<br>
+							<h5
+								style="color: red; text-align: center;  margin-left: 60px; margin-right: 60px">
+								<fmt:formatNumber minFractionDigits="0" value="${p.gia}"
+									type="number" />
+								₫
+							</h5>
+							<c:if test="${p.soLuongTon==0}">
+								<a href="mycart.html?id=${p.id}.html" class="btn disabled"
+									role="button"
+									style="width: 30%; background-color: orange; color: white; margin-left: 165px;">Hết hàng</a>
+							</c:if>
+							 <c:if test="${p.soLuongTon>0}">
+								<c:choose>
+							<c:when test="${ktdangnhap==false}">
+								<a href="home/dangnhap.html" class="btn" onclick="if(!(confirm('Vui lòng đăng nhập để mua sản phẩm'))) return false;"
+									role="button"
+									style="width: 30%; background-color: red; color: white; margin-left: 165px;">Thêm giỏ hàng</a>
+									<br><br>
+							</c:when>
+							<c:when test="${ktdangnhap==true}">
+								<a href="mycart.html?id=${p.id}" class="btn" role="button"
+									style="width: 30%; background-color: red; color: white; margin-left: 165px;">Thêm giỏ hàng</a>
+									<br><br>
+								
+							</c:when>
+</c:choose>
+</c:if>
+</div>
+</c:if>
+</c:forEach>
+</c:forEach>
+		</div>
+	</div>
 	<div class="container-fluid">
 	<h2 style="text-align: center;">THƯƠNG HIỆU</h2>
 	<br>
@@ -123,7 +177,9 @@
 					<textarea rows="12" cols="60%"
 						style="border: none; font-style: italic;  margin-left: 100px;" readonly="true"> ${v.noiDung}</textarea>
 						<div align="center"><b>Ngày đăng bài:</b> <fmt:formatDate pattern="dd-MM-yyyy" value="${v.ngayDang}"/></div>
-						<h6 style="text-align: center;"><b><u>Tác giả:</u> </b> Diếp Khánh Vương</h6>
+						<c:forEach var="t" items="${taikhoans}">
+        				<c:if test="${v.taiKhoanId == t.id}">
+		     			<h6 style="text-align: center;"><b><u>Tác giả:</u> </b> ${t.hoTen}</h6></c:if></c:forEach>
 			</div>
 			</div>
 			</div>

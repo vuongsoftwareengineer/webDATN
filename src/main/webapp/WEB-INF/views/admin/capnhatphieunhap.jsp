@@ -57,7 +57,6 @@
   <p>
     <a href="admin/thuonghieu.html"><i class="far fa-list-alt"></i>Thương hiệu sản phẩm</a>
     <a href="admin/theloai.html"><i class="far fa-list-alt"></i>Thể loại sản phẩm</a>
-    <a href="admin/taikhoan.html"><i class="far fa-list-alt"></i>Tài khoản người dùng</a>
     <a href="admin/tintuc.html"><i class="far fa-list-alt"></i>Tin tức</a>
     <a href="admin/phieunhaphang.html"><i class="far fa-list-alt"></i>Phiếu nhập hàng</a>
     <a href="admin/kiemtradon.html"><i class="far fa-list-alt"></i>Kiểm tra đơn hàng</a>
@@ -68,7 +67,7 @@
   <p style="margin-left: 250px">Chào mừng bạn quay trở lại với trang quản trị của Website </p>
 	
 		<div class="container">
-		<h2 class="lb">Cập nhật/duyệt phiếu đặt hàng</h2>
+		<h2 class="lb">Cập nhật/duyệt phiếu nhập hàng</h2>
 		<p class="errors">${message}</p>
 		<form:form action="admin/capnhatphieunhap/${nhaphang.id}.html" method="post" modelAttribute="nhaphang" enctype="multipart/form-data">
 			<div class="form-group">
@@ -88,20 +87,21 @@
 			</div>
 			<c:if test="${nhaphang.trangThai == 0}">
 				<form:select path="trangThai">
-				<option value="1">Duyệt phiếu nhập hàng</option>
-				<option value="3">Hủy duyệt phiếu nhập hàng</option>
+				<option value="1"> Duyệt phiếu nhập hàng</option>
+				<option value="-1">Hủy duyệt phiếu nhập hàng</option>
 				</form:select><br>
+				<br>
+				<button class="btn" style="width: 50%">Xác nhận cập nhật phiếu nhập hàng</button>
 				</c:if>
+				
 				<c:if test="${nhaphang.trangThai != 0}">
 				<label class="lb"><font color="red">Phiếu nhập hàng của bạn không thể thay đổi vì: </font>
 				<c:choose>
 				<c:when test="${nhaphang.trangThai==1}"><b>Phiếu nhập hàng đã duyệt</b></c:when>
-				<c:when test="${nhaphang.trangThai==2}"><b>Đã hủy duyệt phiếu nhập</b></c:when>
+				<c:when test="${nhaphang.trangThai==-1}"><b>Đã hủy duyệt phiếu nhập</b></c:when>
 				</c:choose></label></c:if>
 				
-				<br>
-				<button class="btn" style="width: 50%">Xác nhận cập nhật phiếu nhập hàng</button>
-		</form:form>
+				</form:form>
 		</div>
 		</div>
 </body>

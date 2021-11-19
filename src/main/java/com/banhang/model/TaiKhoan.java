@@ -1,12 +1,13 @@
 package com.banhang.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties
 public class TaiKhoan {
-	@NotBlank(message = "Không được để trống mã tài khoản")
 	private String id;
 	@NotBlank(message = "Không được để trống địa chỉ")
 	private String diaChi;
@@ -18,12 +19,13 @@ public class TaiKhoan {
 	private String sdt;
 	@NotBlank(message = "Không được để trống username")
 	private String username;
-	@NotBlank(message = "Không được để trống password")
 	private String password;
 	@NotBlank(message = "Không được để trống quyền tài khoản")
 	private String quyen;
 	
 	private String anh;
+	@NotNull(message = "Không được để trống trạng thái")
+	private int trangThai;
 	
 	public String getId() {
 		return id;
@@ -79,6 +81,12 @@ public class TaiKhoan {
 	}
 	public void setAnh(String anh) {
 		this.anh = anh;
+	}
+	public int getTrangThai() {
+		return trangThai;
+	}
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
 	}
 	
 	

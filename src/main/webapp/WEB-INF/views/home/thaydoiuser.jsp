@@ -56,7 +56,7 @@
  <div class="header"  style=" margin-left: 5px">
  
 		<form:form action="home/thaydoiuser/${taikhoan.id}.html" method="post" modelAttribute="taikhoan">		
-			<h2 style="text-align: center; color: #2e6f51"><i class="fa fa-user"></i>Thay đổi thông tin tài khoản</h2> <h6 style="color: red">${message}</h6> 
+			<h2 style="text-align: center; color: #2e6f51"><i class="fa fa-user"></i>Thay đổi thông tin tài khoản</h2> <h6 style="color: red">${tb}</h6><h6 style="color: red">${message}</h6> 
 			<div class="container-fluid">
 			<div class="row"> 
 			                 
@@ -76,12 +76,12 @@
 					<div class="col-sm-6" style="background-color: white;">
 					<div class="form-group"><form:errors style="color:red;" path="username"/><br>
 					<i class="fa fa-key icon1"></i>
-						<form:input type="userName" class="frm1" placeholder="Nhập vào username" path="username" maxlength="20" />
+						<form:input type="username" readonly="true" class="frm1" placeholder="Nhập vào username" path="username" maxlength="20" />
 					</div></div>
 						<div class="col-sm-6" style="background-color: white;">
 					<div class="form-group"><form:errors style="color:red;" path="email"/><br>
 						<i class="fa fa-envelope icon1"></i>
-						<form:input class="frm1" placeholder="Nhập vào email" path="email" type="email"/>
+						<form:input class="frm1" readonly="true" placeholder="Nhập vào email" path="email" type="email"/>
 						</div></div>
 					<div class="col-sm-6" style="background-color: white;">
 					<div class="form-group"><form:errors style="color:red;" path="sdt"/><br>
@@ -95,10 +95,11 @@
 						</div></div>
 						<form:hidden path="quyen" value="CUSTOMER"/>
 						<form:hidden path="password"/>
+						<form:hidden path="trangThai" />
 						<div class="col-sm-6" style="background-color: white;">
 						<div class="form-group">
-			<label class="lb">Chọn Ảnh</label> <br>
-			<input class="frm" type="file" name="photo">
+			<label class="lb">Chọn Ảnh Đại Diện</label> <br>
+			<input class="frm1" type="file" name="photo"  style="margin-left: 55px">
 			<form:hidden path="anh"/>
 			</div></div>
 						<button style="text-align: center;margin-left: 330px; background-color: #2e6f51; margin-top: 2px; color: white; width: 50%;" class=""><b>Thay đổi thông tin</b></button>

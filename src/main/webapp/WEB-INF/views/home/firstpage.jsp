@@ -1,6 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<c:url value="http://localhost:8080/img" var="url"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,7 +136,7 @@
  <div class="header bg1">
 	<nav class="navbar navbar-expand-sm bg" style="width: 100%">
 			<div class="dropup" style="margin-left:  0px">
-					<a href="home/index.html"><img src="./images/logos.png" style="margin-left: -12px"></a>
+					<a href="home/index.html"><img src="./images/logomoi.png" style="margin-left: -12px"></a>
 					</div>
 	<div class="dropdown" style="margin-left: 12px">
 								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span><font color="black">SẢN PHẨM</font><b class="caret"></b></span></a>
@@ -145,12 +146,12 @@
 										<div class="dropdown">
 											<ul class="multi-column-dropdown">
 			
-												<li><a href="home/theloai/1.html"><i class="fa fa-list" aria-hidden="true"></i>Thực phẩm chức năng</a></li>
-												<li><a href="home/theloai/2.html"><i class="fa fa-list" aria-hidden="true"></i>Chăm sóc sức khỏe</a></li>
-												<li><a href="home/theloai/3.html"><i class="fa fa-list" aria-hidden="true"></i>Vệ sinh nhà cửa</a></li>
-												<li><a href="home/theloai/4.html"><i class="fa fa-list" aria-hidden="true"></i>Phòng dịch Covid</a></li>
-												<li><a href="home/theloai/5.html"><i class="fa fa-list" aria-hidden="true"></i>Chăm sóc cơ thể</a></li>
-												<li><a href="home/theloai/6.html"><i class="fa fa-list" aria-hidden="true"></i>Mẹ và bé</a></li>
+												<li><a href="home/theloai/TPCN.html"><i class="fa fa-list" aria-hidden="true"></i>Thực phẩm chức năng</a></li>
+												<li><a href="home/theloai/CSSK.html"><i class="fa fa-list" aria-hidden="true"></i>Chăm sóc sức khỏe</a></li>
+												<li><a href="home/theloai/VSNC.html"><i class="fa fa-list" aria-hidden="true"></i>Vệ sinh nhà cửa</a></li>
+												<li><a href="home/theloai/PDC19.html"><i class="fa fa-list" aria-hidden="true"></i>Phòng dịch Covid</a></li>
+												<li><a href="home/theloai/CSCT.html"><i class="fa fa-list" aria-hidden="true"></i>Chăm sóc cơ thể</a></li>
+												<li><a href="home/theloai/MVB.html"><i class="fa fa-list" aria-hidden="true"></i>Mẹ và bé</a></li>
 </ul>
 </div>
 </div>
@@ -163,33 +164,11 @@
 </ul>
 </div>
 <div class="dropdown" style="margin-left: 0px">
-								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span><font color="black">BÁN CHẠY</font><b class="caret"></b></span></a>
-								<ul class="dropdown-menu multi multi1">
-									<div class="row">
-									<div class="col-sm-3 w3l">
-										<div class="dropdown">
-											<ul class="multi-column-dropdown">
-			
-												<li><a href="home/sanpham/HH001.html"><i class="fa fa-list" aria-hidden="true"></i>Tảo xoắn Spirulina Nhật Bản 2200 viên</a></li>
-												<li><a href="home/sanpham/HH002.html"><i class="fa fa-list" aria-hidden="true"></i>Viên uống hỗ trợ điều trị tai biến Orihiro</a></li>
-												<li><a href="home/sanpham/HH022.html"><i class="fa fa-list" aria-hidden="true"></i>82x Nước Uống Placenta 450.000mg Tinh Chất Nhau Thai Heo 500ml</a></li>
-												<li><a href="home/sanpham/HH004.html"><i class="fa fa-list" aria-hidden="true"></i>Bột uống chiết xuất từ rau xanh hữu cơ Orihiro Aojiru 30 gói</a></li>
-												<li><a href="home/sanpham/HH010.html"><i class="fa fa-list" aria-hidden="true"></i>Viên ngậm lợi khuẩn</a></li>
-												
-</ul>
-</div>
-</div>
-
-
-<div class="col-sm-3 w32">
-<a href="home/sanpham/HH023.html"><img src="./images/banchay.png" class="img-responsive" alt=""></a>
-				</div>
-				
-			
-</ul>
-</div>
+						<a href="home/banchay.html" class="dropdown-toggle hyper">
+							<span><font color="black">BÁN CHẠY</font><b class="caret"></b></span></a>
+		</div>
 <div class="dropdown" style="margin-left: 0px">
-								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span><font color="black">HÀNG MỚI VỀ</font><b class="caret"></b></span></a>
+								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span><font color="black">MỚI</font><b class="caret"></b></span></a>
 								<ul class="dropdown-menu multi">
 									<div class="row">
 									<div class="col-sm-3 w3l">
@@ -216,18 +195,18 @@
 
 
 <div class="dropdown" style="margin-left: 0px">
-						<a href="home/tintuc.html"
-							style="color: black; text-decoration: none">Tin Tức</a>
-</div>
+						<a href="home/tintuc.html" class="dropdown-toggle hyper">
+							<span><font color="black">TIN TỨC</font><b class="caret"></b></span></a>
+		</div>
 		
-		<div class="dropdown" style="margin-left: 40px">
-						<a href="home/thuonghieu.html"
-							style="color: black; text-decoration: none">Thương Hiệu</a>
+		<div class="dropdown" style="margin-left: 0px">
+						<a href="home/thuonghieu.html" class="dropdown-toggle hyper">
+							<span><font color="black">THƯƠNG HIỆU</font><b class="caret"></b></span></a>
 		</div>
 		
 		<div class="dropdown" style="margin-left: 40px">
 		<form class="form-inline" action="home/timkiem.html">
-			<input class="form-control mr-sm-2" type="text" style="width: 198px"
+			<input class="form-control mr-sm-2" type="text" style="width: 150px"
 				placeholder="Bạn muốn mua gì?" name="timkiem">
 			<button type="submit"
 				style="height: 30px"><font color="#800000">Tìm kiếm</font></button>

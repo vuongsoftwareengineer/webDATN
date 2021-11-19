@@ -1,6 +1,8 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,11 +60,11 @@ body {
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr>
-		<th>Mã</th>
-        <th>Tên Sản phẩm</th>
+		<th>Mã hàng hóa</th>
+        <th>Tên hàng hóa</th>
         <th>Thương hiệu</th>
         <th>Loại</th>
-        <th>Giá tiền</th>
+        <th>Giá bán</th>
         <th>Mô tả</th>
         <th>Số lượng</th>
        	<th>Khối lượng</th>
@@ -79,7 +81,7 @@ body {
         <td>${p.thuongHieuId}</td>
         <td>${p.theLoaiId}</td> 
         <td><f:formatNumber minFractionDigits="0" value="${p.gia}" type="number"/>đ</td>
-        <td><textarea rows="12">${p.moTa}</textarea></td>
+        <td><textarea rows="7">${p.moTa}</textarea></td>
         <td>${p.soLuongTon}</td>
         <td>${p.khoiLuong}</td>
         <td width="312px"><img src="./images/${p.anh}" style="width: 100%">

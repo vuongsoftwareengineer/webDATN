@@ -55,6 +55,8 @@ body {
 					<thead>
 						<tr>
 		<th>Mã hàng hóa</th>
+		<th align="center">Tên hàng hóa</th>
+		<th>Ảnh hàng hóa</th>
         <th>Ngày áp dụng</th>
         <th>Giá nhập hàng hóa</th>
         <th>Sửa</th>
@@ -62,12 +64,19 @@ body {
     </thead>
     <tbody>
     <c:forEach var="p" items="${gianhaps}">
+    <c:forEach var="o" items="${sanphams}">
+    		<c:if test="${o.id==p.idHH}">
+    		
       <tr>
         <td>${p.idHH}</td>
+        <td width="200px">${o.ten}</td>
+        <td width="180px"><img src="./images/${o.anh}" style="width: 50%">
         <td>${p.ngayApDung}</td>
-        <td>${p.gia}</td>
+        <td><f:formatNumber minFractionDigits="0" value="${p.gia}" type="number"/>đ</td>
          <td><a href="admin/capnhatgianhap/${p.idHH}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn sửa giá nhập này không?'))) return false;">Sửa</a></td>
     		</tr>
+    		</c:if>
+      </c:forEach>
       </c:forEach>
 					</tbody>
 				</table>

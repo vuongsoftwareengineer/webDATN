@@ -55,7 +55,8 @@
 		<th><div align="center">Số điện thoại</div></th>
 		<th><div align="center">Tổng tiền</div></th>
 		<th><div align="center">Ngày đặt</div></th>
-		<th><div align="center">Trạng thái đơn hàng</div></th>
+		<th><div align="center">Trạng thái đơn</div></th>
+		<th><div align="center">Xem chi tiết đặt</div></th>
 		<th>Cập nhật</th>
        	</tr>
 		<c:forEach var="o" items="${donhangs}">
@@ -63,10 +64,10 @@
 				<td><div align="center">${o.id}</div></td>
 				<td><div align="center">${o.taiKhoanId}</div></td>
 				<td><div align="center">${sessionScope.admin.getHoTen()}</div></td>
-				<td><div align="center">${sessionScope.admin.getDiaChi()}</div></td>
+				<td><div align="center">${o.diachi}</div></td>
 				<td><div align="center">${sessionScope.admin.getSdt()}</div></td>
 			     <td><div align="center"><f:formatNumber minFractionDigits="0" value="${o.tongTien}"
-						type="number" /> ₫</div></td>
+						type="number" /> vnd</div></td>
 				<td><div align="center"><f:formatDate pattern="dd-MM-yyyy" value="${o.ngayLap}"/></div></td>
 				<td><div align="center">
 				<c:choose>
@@ -74,11 +75,15 @@
 				<c:when test="${o.trangThai==1}">Đã xác nhận</c:when>
 				<c:when test="${o.trangThai==2}">Đang giao hàng</c:when>
 				<c:when test="${o.trangThai==3}">Đã hoàn thành</c:when>
+				<c:when test="${o.trangThai==4}">Giao hàng không thành công</c:when>
 				<c:when test="${o.trangThai==-1}">Đã hủy</c:when>
 				</c:choose>
 				</div>
 				</td>
-				
+				<c:forEach var="p" items="${chitietdats}">
+				<c:if test="${o.id==p.idPhieuDatHang}">
+				<td><a href="admin/chitiet_dat/${p.id}.html">Xem chi tiết phiếu đặt</a>
+				</td></c:if></c:forEach>
 				 <td><div><a href="admin/capnhatdon/${o.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn sửa đơn hàng này không?'))) return false;">Cập nhật</a></div></td>
         	</tr>
 		</c:forEach>

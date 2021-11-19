@@ -66,7 +66,9 @@ body {
 				  <f:formatDate pattern="dd-MM-yyyy" value="${o.ngayDang}"/>	  
 		     	</div></td>
 		     	<td width="200px"><div align="center"><textarea rows="12">${o.noiDung}</textarea></div></td>
-		     	<td  width="232px"><div align="center">${sessionScope.admin.getHoTen()}</div></td>
+		     	 <c:forEach var="t" items="${taikhoans}">
+        		<c:if test="${o.taiKhoanId == t.id}">
+		     	<td  width="232px"><div align="center">${t.hoTen}</div></td></c:if></c:forEach>
 				 <td><div align="center"><a href="admin/capnhattin/${o.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn sửa tin này không?'))) return false;">Sửa tin</a></div></td>
         		<td><div align="center"><a href="admin/xoatin/${o.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn xóa tin này không?'))) return false;">Xóa tin</a></div></td> 
 			</tr>

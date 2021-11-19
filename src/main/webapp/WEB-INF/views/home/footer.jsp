@@ -54,7 +54,7 @@
 							<li><i class="fa fa-phone" aria-hidden="true"></i>+84817581018</li></a></li>
 			</ul>
 			</div>
-				<h2 style="text-align: center; margin-top: 30px"><a href="home/index.html"><img src="./images/logos.png"></a><br>Đạt kết quả tốt, lan toả sự tin tưởng</h2>
+				<h2 style="text-align: center; margin-top: 30px"><a href="home/index.html"><img src="./images/logomoi.png"></a><br>Đạt kết quả tốt, lan toả sự tin tưởng</h2>
 				<ul class="social-fo">
 				  <h2 style="text-align: left; margin-left: 498px">
 					<a href="https://www.facebook.com/DiepKhanhVuong" class="face"><i class="fa fa-facebook" aria-hidden="true"></i></a>

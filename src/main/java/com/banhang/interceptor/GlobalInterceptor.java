@@ -28,7 +28,7 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
 	HttpServletResponse response, Object handler) throws Exception{
 	RestTemplate restTemplate=new RestTemplate();
 	ResponseEntity<HangHoa[]> responseEntity = 
-	restTemplate.getForEntity("http://localhost:8080/hanghoa", HangHoa[].class);
+	restTemplate.getForEntity("http://localhost:8080/guest/hanghoa", HangHoa[].class);
 	HangHoa[] responseBody = responseEntity.getBody();
 	List<HangHoa> list = Arrays.asList(responseBody);
 		request.setAttribute("sanphams", list);

@@ -25,6 +25,7 @@ public class PhieuDatHang {
 	private String taiKhoanId;
 	@NotNull(message = "Không được để trống trạng thái")
 	private int trangThai;
+	private String diachi;
 	public String getId() {
 		return id;
 	}
@@ -55,6 +56,13 @@ public class PhieuDatHang {
 	}
 	public void setTrangThai(int trangThai) {
 		this.trangThai = trangThai;
+	}
+	public String getDiachi() {
+		return diachi;
+	}
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
 	}	
+	
 	
 }

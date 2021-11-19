@@ -59,8 +59,9 @@
 	<form:form action="home/quenmk.html" class="container" method = "post" modelAttribute="taikhoan" enctype="multipart/form-data">
     <h6 style="color: red">${message}</h6>
     <h6 style="color: red">${message1}</h6>
+    <h6 style="color: red">${tb}</h6>
 	<i class="fa fa-user" aria-hidden="true"></i>
-    <input type="text" placeholder="Nhập tài khoản" class="frm" name="id" required oninvalid="this.setCustomValidity('Xin vui lòng nhập tài khoản của bạn !')"
+    <input type="text" placeholder="Nhập Username" class="frm" name="id" required oninvalid="this.setCustomValidity('Xin vui lòng nhập tài khoản của bạn !')"
  oninput="setCustomValidity('')">
     <br>
      <h6 style="color: red">${message2}${tb}</h6>

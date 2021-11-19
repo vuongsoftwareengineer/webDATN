@@ -23,6 +23,8 @@ public class TinTuc {
     @Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayDang;
+    @NotBlank(message = "Không được để trống mã tài khoản")
+	private String taiKhoanId;
     public String getId() {
 		return id;
 	}
@@ -53,6 +55,11 @@ public class TinTuc {
 	public void setNgayDang(Date ngayDang) {
 		this.ngayDang = ngayDang;
 	}
-	
+	public String getTaiKhoanId() {
+		return taiKhoanId;
+	}
+	public void setTaiKhoanId(String taiKhoanId) {
+		this.taiKhoanId = taiKhoanId;
+	}
 	
 }

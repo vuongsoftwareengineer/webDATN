@@ -1,5 +1,3 @@
-
-
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f"%>
@@ -49,33 +47,43 @@
 <a href="admin/chitietnhaphang.html"><i class="far fa-list-alt"></i>Chi tiết nhập hàng</a>
   <table class="table table-bordered table-hover" style="margin-left: 12px">
 		<tr>
-		<th><div align="center">Mã phiếu nhập hàng</div></th>
-		<th><div align="center">Mã Tài Khoản Nhập</div></th>
-		<th><div align="center">Tên Tài Khoản Nhập</div></th>
+		<th><div align="center">Mã phiếu nhập</div></th>
+		<th><div align="center">Nhân viên lập phiếu</div></th>
+		<th><div align="center">Tên Tài Khoản</div></th>
 		<th><div align="center">Tổng tiền</div></th>
 		<th><div align="center">Ngày Lập</div></th>
-		<th><div align="center">Trạng thái đơn hàng</div></th>
+		<th><div align="center">Trạng thái đơn</div></th>
+		<th><div align="center">Xem chi tiết nhập</div></th>
+		<c:if test="${sessionScope.admin.getQuyen() == 'ADMIN'}">
 		<th>Cập nhật</th>
+		</c:if>
        	</tr>
 		<c:forEach var="o" items="${nhaphangs}">
+		<c:forEach var="p" items="${chitietnhaps}">
+    	<c:if test="${o.id==p.idPhieuNhapHang}">
+      <tr>
 			<tr>
 				<td><div align="center">${o.id}</div></td>
 				<td><div align="center">${o.taiKhoanId}</div></td>
 				<td><div align="center">${sessionScope.admin.getHoTen()}</div></td>
 				 <td><div align="center"><f:formatNumber minFractionDigits="0" value="${o.tongTien}"
-						type="number" /> ₫</div></td>
+						type="number" /> vnd</div></td>
 				<td><div align="center"><f:formatDate pattern="dd-MM-yyyy" value="${o.ngayLap}"/></div></td>
 				<td><div align="center">
 				<c:choose>
 				<c:when test="${o.trangThai==0}">Chờ duyệt</c:when>
 				<c:when test="${o.trangThai==1}">Đã duyệt</c:when>
-				<c:when test="${o.trangThai==2}">Không được duyệt</c:when>
+				<c:when test="${o.trangThai==-1}">Không được duyệt</c:when>
 				</c:choose>
 				</div>
+				<td><a href="admin/chitietnhap/${p.id}.html">Xem chi tiết phiếu nhập</a>
 				</td>
-				
+				<c:if test="${sessionScope.admin.getQuyen() == 'ADMIN'}">
 				 <td><div><a href="admin/capnhatphieunhap/${o.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn sửa phiếu nhập hàng này không?'))) return false;">Cập nhật</a></div></td>
+        	</c:if>
+        	
         	</tr>
+        	</c:if></c:forEach>
 		</c:forEach>
 		
 	</table>

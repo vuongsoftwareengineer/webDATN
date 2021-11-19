@@ -1,8 +1,8 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%><%-- 
-<c:url value="http://localhost:8080/img" var="url"></c:url> --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%-- <c:url value="http://localhost:8080/img" var="url"></c:url> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,21 +60,20 @@
 				<br>
 				<i class="fa fa-shopping-bag" aria-hidden="true"></i>
 				
-				<label><b>Hãng: </b> ${sanpham.thuongHieuId}</label>
+				<label><b>Hãng: </b> <c:forEach var="b" items="${thuonghieus}">
+				<c:choose>
+				<c:when test="${sanpham.thuongHieuId==b.id}">${b.ten}</c:when>
+				</c:choose></c:forEach></label>
 				
 				<br>
 				
 				<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
 				<label><b>Loại: </b>
+				<c:forEach var="a" items="${theloais}">
 				<c:choose>
-				<c:when test="${sanpham.theLoaiId==1}">Thực phẩm chức năng</c:when>
-				<c:when test="${sanpham.theLoaiId==2}">Chăm sóc sức khỏe</c:when>
-				<c:when test="${sanpham.theLoaiId==3}">Vệ sinh nhà cửa</c:when>
-				<c:when test="${sanpham.theLoaiId==4}">Phòng dịch Covid</c:when>
-				<c:when test="${sanpham.theLoaiId==5}">Chăm sóc cơ thể</c:when>
-				<c:when test="${sanpham.theLoaiId==6}">Mẹ và bé</c:when>
-				
-				</c:choose></label>
+				<c:when test="${sanpham.theLoaiId==a.id}">${a.ten}</c:when>
+				</c:choose></c:forEach>
+				</label>
 				<br>
 				<textarea rows="7" cols="90%"
 						style="border: none; font-style: italic;" readonly="true"> ${sanpham.moTa}</textarea>
@@ -87,7 +86,7 @@
 				<br>
 				<i class="fa fa-exchange" aria-hidden="true"></i>
 				<label><b>Số lượng đặt: </b></label>
-				<input name="soLuong" type="number" style="margin-left: 12px" min="1" max="10"/>
+				<input name="soLuong" type="number" style="margin-left: 12px" min="1" max="${sanpham.soLuongTon}"/>
 				<br><button style="width: 44.5%; margin-top: 2px"><b>Mua hàng</b></button>
 			</div>
 			</div>

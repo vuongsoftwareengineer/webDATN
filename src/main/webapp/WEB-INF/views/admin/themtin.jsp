@@ -90,7 +90,7 @@
 				<form:textarea class="frm" path="noiDung" rows="5"/>
 				<form:errors class="errors" path="noiDung"/>
 			</div>
-
+			<form:hidden path="taiKhoanId" value= "${sessionScope.admin.getId()}"/>
 			<br>
 				<button class="btn"  style="width: 50%">Thêm tin tức</button>
 		</form:form>

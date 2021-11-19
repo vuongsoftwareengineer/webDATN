@@ -226,15 +226,6 @@
 
 
 	</div>
-<!-- 	<div class="dropdown" style="margin-left: 70px">
-						<a href="home/sptheogia1/1.html"
-							style="color: red; text-decoration: none">Sản phẩm có giá từ 0 đến 500.000 đồng</a>
-		</div>
-		
-		<div class="dropdown" style="margin-left: 40px">
-						<a href="home/sptheogia2/2.html"
-							style="color: red; text-decoration: none">Sản phẩm có giá từ 500.000 đồng đến 4 triệu đồng</a>
-		</div> -->
 <div  class="bg1">
 <h4 class="text-center" style="color: darkblue;margin-top: 7px;">Giỏ hàng của bạn</h4>
 <div class="container" style="margin-top: 0px;margin-left: 312px; background-color: white;">
@@ -340,10 +331,7 @@
                         <a href="home/index.html"><button class="text-center">Tiếp tục mua hàng</button></a></td>
                         <td>
                         
-           <form:form action="myoder.html" modelAttribute="orderdetail">
-			<button  class="btn btn-primary bt ">Đặt hàng</button>
-		
-		</form:form>
+          <a href="home/thongtinmua.html"><button class="text-center">Kiểm tra thông tin nhận hàng</button></a></td>
                         <td>   </td>
                         <td>   </td>
                     </tr>

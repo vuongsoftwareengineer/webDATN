@@ -36,8 +36,11 @@
   <p>
     <a href="admin/thuonghieu.html"><i class="far fa-list-alt"></i>Thương hiệu sản phẩm</a>
     <a href="admin/theloai.html"><i class="far fa-list-alt"></i>Thể loại sản phẩm</a>
-    <a href="admin/taikhoan.html"><i class="far fa-list-alt"></i>Tài khoản người dùng</a>
+    <c:if test="${sessionScope.admin.getQuyen() =='ADMIN'}"><a href="admin/taikhoan.html"><i class="far fa-list-alt"></i>Quản lý tài khoản người dùng</a></c:if>
+    <c:if test="${sessionScope.admin.getQuyen() =='STAFF'}"><a href="admin/taikhoankh.html"><i class="far fa-list-alt"></i>Quản lý tài khoản khách hàng</a></c:if>
     <a href="admin/tintuc.html"><i class="far fa-list-alt"></i>Tin tức</a>
+    <a href="admin/thongke.html"><i class="far fa-list-alt"></i>Thống kê doanh thu</a>
+    <a href="admin/thongkeloinhuan.html"><i class="far fa-list-alt"></i>Thống kê lợi nhuận</a>
     <a href="admin/phieunhaphang.html"><i class="far fa-list-alt"></i>Phiếu nhập hàng</a>
     <a href="admin/kiemtradon.html"><i class="far fa-list-alt"></i>Kiểm tra đơn hàng</a>
     <a href="admin/dangxuat.html"><i class="fas fa-sign-out-alt"></i>Đăng xuất </a></p>

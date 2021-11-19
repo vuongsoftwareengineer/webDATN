@@ -23,16 +23,24 @@
 	<table class="table table-bordered table-hover">
 		<tr>
 		<th>Mã chi tiết đơn</th>
-		<th>Mã sản phẩm</th>
+		<th style="text-align: center">Sản phẩm</th>
+		<th>Ảnh sản phẩm</th>
 		<th>Số lượng đặt</th>
 		<th>Mã đơn hàng</th>
+		<th>Thành tiền</th>
 		</tr>
 		<c:forEach var="o" items="${ctdonhangs}">
+		<c:forEach var="p" items="${sanphams}">
+		<c:if test="${p.id==o.idHH}">
 			<tr>
 				<td>${o.id}</td>
-				<td>${o.idHH}</td>
+				<td>${o.idHH}-${p.ten}</td>
+				<td width="250px"><img src="./images/${p.anh}" style="width: 50%">
 				<td>${o.soLuong}</td>
 				<td>${o.idPhieuDatHang}</td>
+				<td><fmt:formatNumber minFractionDigits="0" value="${p.gia*o.soLuong}" type="number"/>đ</td>
+				</c:if>
+				</c:forEach>
 		</c:forEach>
 	</table>
 		<jsp:include page="footer.jsp"></jsp:include>

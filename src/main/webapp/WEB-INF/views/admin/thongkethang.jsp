@@ -87,17 +87,64 @@ body {
     	    <div class="line-chart">
     		<h7 style="margin-left: 160px"><b>Thống kê tổng sản phẩm bán được theo biểu đồ cột</b></h7>
     		 <canvas id="line" height="300" width="700" style="width: 700px; height: 300px;"> </canvas>
+    		  <h3 class="tlt">Line Chart</h3>
+                                            <canvas id="viewchart1" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                                            <script>
+                                                var lineChartData = {
+                                                    labels: ["",<c:forEach var="item" items="${thongkethangs}">'${item.id}',</c:forEach>],
+                                                    datasets: [
+                                                        {
+                                                            fillColor: "#FC8213",
+                                                            data: ["0",<c:forEach var="item" items="${thongkethangs}">${item.tong},</c:forEach>]
+                                                        }
+                                                    ]
+
+                                                };
+                                                new Chart(document.getElementById("viewchart1").getContext("2d")).Line(lineChartData);
+
+                                            </script>
+                                        </div> 			  		   			
+                                    </div>
+                                
+                                <div class="col-md-6 chit-chat-layer1-rit" style="margin-left: 600px">    	
+                                    <div class="glocy-chart">
+                                        <div class="span-2c">  
+                                            <h3 class="tlt">Bar Chart</h3>
+                                            <canvas id="bar" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                                            <script>
+                                                var barChartData = {
+                                                    labels: [<c:forEach var="item" items="${thongkethangs}">'${item.id}',</c:forEach>],
+                                                    datasets: [
+                                                        {
+                                                            fillColor: "#FC8213",
+                                                            data: [<c:forEach var="item" items="${thongkethangs}">${item.tong},</c:forEach>]
+                                                        }
+                                                    ]
+
+                                                };
+                                                new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+
+                                            </script>
+                                        </div> 			  		   			
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                
+          <%--    <div class="col-md-6 chart-blo-1" style="margin-left: 600px">
+    	    <div class="line-chart">
+    		<h7 style="margin-left: 160px"><b>Thống kê tổng sản phẩm bán được theo biểu đồ cột</b></h7>
+    		 <canvas id="line" height="300" width="700" style="width: 700px; height: 300px;"> </canvas>
     		 <c:forEach var="v" items="${thongkethangs}">
                      <script>
                         var lineChartData = {
-						labels : ["","${v.id}","SP009","SP007","SP005","SP004","SP001"],
+						labels : ["",<c:forEach var="item" items="${thongkethangs}">'${item.id}',</c:forEach>],
 						datasets : [
 							{
 								fillColor : "rgba(51, 122, 183, 0.71)",
 								strokeColor : "#337AB7",
 								pointColor : "#337AB7",
 								pointStrokeColor : "#fff",
-								data : [0,"${v.tong}",3,4,2,2,5]
+								data : [0,<c:forEach var="item" items="${thongkethangs}">'${item.tong}',</c:forEach>]
 							}
 						]
 						
@@ -109,7 +156,7 @@ body {
 			 function drawChart() {
 			 var data = google.visualization.arrayToDataTable([
 			 ['Mã sản phẩm', 'Tổng giá trị'],
-			 ["${v.id}", ${v.tong},],["SP009",3,],["SP007",4],["SP005",2,],["SP004",2,],["SP001",5,],
+			 ["${v.id}', ${v.tong}]
 			 ]);
 			 var options = {
 					 title: 'Thống kê tổng sản phẩm bán được theo biểu đồ tròn',
@@ -124,7 +171,7 @@ body {
 			                    </c:forEach>
     	    </div>
     	  </div>
-
-
+ --%>
+ </div>
 </body>
 </html>

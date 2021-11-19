@@ -12,7 +12,7 @@
 <body>
 	<jsp:include page="firstpg.jsp"></jsp:include>
 
-	<h4 style="text-align: center; margin-bottom: 10px">ĐƠN HÀNG ĐÃ ĐẶT</h4>
+	<h4 style="text-align: center; margin-bottom: 10px">ĐƠN HÀNG ĐÃ ĐẶT</h4><h6 style="color: red">${message}${tb}</h6>
 <div class="ser-t">
 				<b></b>
 				<span><i></i></span>
@@ -40,7 +40,7 @@
 			<tr>
 				<td>${o.id}</td>
 				<td><div align="center">${sessionScope.taikhoan.getHoTen()}</div></td>
-				<td><div align="center">${sessionScope.taikhoan.getDiaChi()}</div></td>
+				<td>${o.diachi}</td>
 				<td><div align="center">${sessionScope.taikhoan.getEmail()}</div></td>
 				<td><div align="center">${sessionScope.taikhoan.getSdt()}</div></td>
 				<td><fmt:formatDate pattern="dd-MM-yyyy" value="${o.ngayLap}"/></td>
@@ -52,6 +52,7 @@
 				<c:when test="${o.trangThai==1}">Đã xác nhận</c:when>
 				<c:when test="${o.trangThai==2}">Đang giao hàng</c:when>
 				<c:when test="${o.trangThai==3}">Đã hoàn thành</c:when>
+				<c:when test="${o.trangThai==4}">Giao hàng không thành công</c:when>
 				<c:when test="${o.trangThai==-1}">Đã hủy</c:when>
 				</c:choose></td>	
 		<td><div align="center"><a href="home/capnhatdh/${o.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn hủy đơn hàng này không?'))) return false;">Tùy chọn hủy đơn</a></div></td>

@@ -19,7 +19,13 @@
 					</div>
 	<br>
 	<div class="container-fluid">
-	<h2 style="text-align: center;">THƯƠNG HIỆU NỔI BẬT</h2>
+	<br>
+	<h2 style="text-align: center;color: brown">THƯƠNG HIỆU NỔI BẬT</h2>
+	<div class="ser-t">
+				<b></b>
+				<span><i></i></span>
+				<b class="line"></b>
+			</div>
 		<c:forEach var="b" items="${thuonghieus}">
 			<a href="home/thuonghieu/${b.id}.html" style="text-align: center; margin-left: 100px"><img src="./images/${b.anh}" style="width: 12%; margin-bottom: 40px; margin-top: 20px"></a>
 		</c:forEach>

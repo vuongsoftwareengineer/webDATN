@@ -56,7 +56,6 @@
   <p>
     <a href="admin/thuonghieu.html"><i class="far fa-list-alt"></i>Thương hiệu sản phẩm</a>
     <a href="admin/theloai.html"><i class="far fa-list-alt"></i>Thể loại sản phẩm</a>
-    <a href="admin/taikhoan.html"><i class="far fa-list-alt"></i>Tài khoản người dùng</a>
     <a href="admin/tintuc.html"><i class="far fa-list-alt"></i>Tin tức</a>
     <a href="admin/phieunhaphang.html"><i class="far fa-list-alt"></i>Phiếu nhập hàng</a>
     <a href="admin/kiemtradon.html"><i class="far fa-list-alt"></i>Kiểm tra đơn hàng</a>

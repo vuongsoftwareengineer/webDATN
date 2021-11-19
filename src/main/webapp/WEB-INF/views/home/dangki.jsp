@@ -55,41 +55,32 @@
  <div class="header"  style=" margin-left: 5px">
  
 		<form:form action="home/dangki.html" method="post" modelAttribute="taikhoan">		
-			<h2 style="text-align: center; color: #2e6f51"><i class="fa fa-user"></i>Đăng ký tài khoản</h2> <h6 style="color: red">${message}</h6> 
+			<h2 style="text-align: center; color: #2e6f51"><i class="fa fa-user"></i>Đăng ký tài khoản</h2><h6 style="color: red">${tb}</h6> <h6 style="color: red">${message}</h6> 
 			<div class="container-fluid">
 			<div class="row"> 
 			                 
-			
-			<div class="col-sm-6" style="background-color: white;">
-					<div class="form-group">
-					<form:errors style="color:red;" path="id"/><br>
-						<i class="fa fa-user icon1"></i>
-					<form:input type="text" class="frm1" placeholder="Nhập tài khoản" path="id" maxlength="20" />
-						</div></div>
-						<div class="col-sm-6" style="background-color: white;">
+					<div class="col-sm-6" style="background-color: white;">
 					<div class="form-group"><form:errors style="color:red;" path="hoTen"/><br>
 					<i class="fas fa-file-signature icon1"></i>
 							<form:input type="text" class="frm1" placeholder="Họ và tên" path="hoTen" />
 						</div>
 						</div>
+						<div class="col-sm-6" style="background-color: white;">
+					<div class="form-group"><br>
+					<i class="fa fa-lock icon1"></i>
+						<input name="mk" type="password" class="frm1" placeholder="Nhập vào mật khẩu" maxlength="20" />
+						
+						</div></div>
+					
 					<div class="col-sm-6" style="background-color: white;">
 					<div class="form-group"><form:errors style="color:red;" path="username"/><br>
 					<i class="fa fa-key icon1"></i>
-						<form:input type="userName" class="frm1" placeholder="Nhập vào username" path="username" maxlength="20" />
+					<input hidden="true" name="user" value="${taikhoan.username}">
+						<form:input type="username" class="frm1" placeholder="Nhập vào username" path="username" maxlength="20" />
 					</div></div>
-					<div class="col-sm-6" style="background-color: white;">
-					<div class="form-group"><form:errors style="color:red;" path="password"/><br>
-					<i class="fa fa-lock icon1"></i>
-						<form:input type="password" class="frm1" placeholder="Nhập vào mật khẩu" path="password" maxlength="20" />
-						
-						</div></div>
+					
 						<div class="col-sm-6" style="background-color: white;">
-					<div class="form-group"><form:errors style="color:red;" path="email"/><br>
-						<i class="fa fa-envelope icon1"></i>
-						<form:input class="frm1" placeholder="Nhập vào email" path="email" type="email"/>
-						</div></div>
-						<div class="col-sm-6" style="background-color: white;">
-					<div class="form-group"><h6 style="color: red">${tb}</h6> <br>
+					<div class="form-group"> <br>
 						<i class="fa fa-key icon1"></i>
 						<input name="xacnhanmk" type="password" class="frm1" placeholder="Nhập lại mật khẩu" maxlength="20" class="errors">
 						</div></div>
@@ -104,7 +95,15 @@
 					<i class="fa fa-address-card icon1"></i>
 						<form:input type="text" class="frm1" placeholder="Địa chỉ" path="diaChi" />
 						</div></div>
+								<div class="col-sm-6" style="background-color: white;">
+					<div class="form-group"><form:errors style="color:red;" path="email"/><br>
+						<i class="fa fa-envelope icon1"></i>
+						<form:input class="frm1" placeholder="Nhập vào email" path="email" type="email"/>
+						</div></div>
+					
+					
 						<form:hidden path="quyen" value="CUSTOMER"/>
+						<form:hidden path="trangThai" value="1"/>
 						<div>
 								 <input type="checkbox" id="check-rule" checked="checked" style="text-align: center;margin-left: 500px">
 								<label>Bạn đã đọc và đồng ý với các điều khoản

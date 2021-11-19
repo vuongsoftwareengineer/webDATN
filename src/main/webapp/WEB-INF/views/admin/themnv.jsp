@@ -63,16 +63,10 @@
   <p style="margin-left: 250px">Chào mừng bạn quay trở lại với trang quản trị của Website </p>
 	
 		<div class="container">
-		<h2 class="lb" style="margin-left: 200px">Thêm thể loại</h2>
+		<h2 class="lb" style="margin-left: 200px">Thêm nhân viên</h2><h6 style="color: red">${tb}</h6> 
 		<p class="errors">${message}</p>
 		<form:form action="admin/themnv.html" method="post" modelAttribute="taikhoan" enctype="multipart/form-data">
-			<div class="form-group">
-				<label class="lb">Mã tài khoản</label>
-				<br>
-				<form:input class="frm" path="id" />
-				<form:errors class="errors" path="id"/>
-			</div>
-			
+		<input hidden="true" name="user" value="${taikhoan.username}"/>
 			<div class="form-group">
 				<label class="lb">Tên tài khoản</label>
 				<br>
@@ -104,6 +98,7 @@
 				<form:errors class="errors" path="email"/>
 			</div>	
 			<form:hidden path="quyen" value="STAFF"/>
+			<form:hidden path="trangThai" value="1"/>
 					
 			<br>
 				<button class="btn"  style="width: 50%">Thêm nhân viên</button>

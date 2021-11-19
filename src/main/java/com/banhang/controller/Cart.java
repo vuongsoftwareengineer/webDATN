@@ -55,7 +55,7 @@ public class Cart {
 			RestTemplate rt = new RestTemplate();
 			Map<String, String> params = new HashMap<String, String>();
 			params.put("id", id);
-			HangHoa product = rt.getForObject(URL+"/hanghoa/{id}", HangHoa.class, params);
+			HangHoa product = rt.getForObject(URL+"guest/hanghoa/{id}", HangHoa.class, params);
 			if (!id.equals(""))
 				mycart.addProduct(product, 1);
 			

@@ -13,15 +13,14 @@
 <body>
 	<jsp:include page="firstpage.jsp"></jsp:include>
 
-	<h2 style="text-align: center; margin-top: 30px">Thể loại:
+	<h2 style="text-align: center; color: brown; margin-top: 30px">Thể loại:
+	<c:forEach var="o" items="${theloais}">
 	<c:choose>
-				<c:when test="${sanphams[0].theLoaiId==1}">Thực phẩm chức năng</c:when>
-				<c:when test="${sanphams[0].theLoaiId==2}">Chăm sóc sức khỏe</c:when>
-				<c:when test="${sanphams[0].theLoaiId==3}">Vệ sinh nhà cửa</c:when>
-				<c:when test="${sanphams[0].theLoaiId==4}">Phòng dịch Covid</c:when>
-				<c:when test="${sanphams[0].theLoaiId==5}">Chăm sóc cơ thể</c:when>
-				<c:when test="${sanphams[0].theLoaiId==6}">Mẹ và bé</c:when>
-				</c:choose></h2>
+				<c:when test="${sanphams[0].theLoaiId==o.id}">${o.ten}</c:when>
+				</c:choose>
+	</c:forEach>
+	</h2>
+		<br>
 		<div class="ser-t">
 				<b></b>
 				<span><i></i></span>

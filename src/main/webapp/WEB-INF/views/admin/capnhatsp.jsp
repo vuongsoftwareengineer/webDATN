@@ -1,5 +1,8 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +59,6 @@
   <p>
     <a href="admin/thuonghieu.html"><i class="far fa-list-alt"></i>Thương hiệu sản phẩm</a>
     <a href="admin/theloai.html"><i class="far fa-list-alt"></i>Thể loại sản phẩm</a>
-    <a href="admin/taikhoan.html"><i class="far fa-list-alt"></i>Tài khoản người dùng</a>
     <a href="admin/tintuc.html"><i class="far fa-list-alt"></i>Tin tức</a>
     <a href="admin/phieunhaphang.html"><i class="far fa-list-alt"></i>Phiếu nhập hàng</a>
     <a href="admin/kiemtradon.html"><i class="far fa-list-alt"></i>Kiểm tra đơn hàng</a>
@@ -92,12 +94,10 @@
 			<div class="form-group">
 			<label class="lb">Thể loại</label>
 				<form:select path="theLoaiId">
-				<option value="1">Thực phẩm chức năng</option>
-				<option value="2">Chăm sóc sức khỏe</option>
-				<option value="3">Vệ sinh nhà cửa</option>
-				<option value="4">Phòng dịch Covid</option>
-				<option value="5">Chăm sóc cơ thể</option>
-				<option value="6">Mẹ và bé</option>
+				<option value="${sanpham.theLoaiId}">${sanpham.theLoaiId}</option>
+				 <c:forEach var="p" items="${theloais}">
+            <option value="${p.id}">${p.id}-${p.ten}</option>
+          </c:forEach>
 				</form:select>
 			</div>
 			<div class="form-group">
@@ -110,23 +110,16 @@
 			<div class="form-group">
 			<label class="lb">Thương hiệu</label>
 				<form:select path="thuongHieuId">
-				<option value="82X">82X SAKURA</option>
-				<option value="AFRESH">AQUAFRESH</option>
-				<option value="CHU">CHUCHU BABY</option>
-				<option value="FINEJPA">FINE JAPAN</option>
-				<option value="IHA">IHADA</option>
-				<option value="OEM">OEM JAPAN</option>
-				<option value="KINO">KINOHIMITSU</option>
-				<option value="ORI">ORIHIRO</option>
-				<option value="PITA">PITTA</option>
-				<option value="TMIT">TOAMIT</option>
-				<option value="YUW">YUWA</option>
+				<option value="${sanpham.thuongHieuId}">${sanpham.thuongHieuId}</option>
+				 <c:forEach var="p" items="${thuonghieus}">
+            	<option value="${p.id}">${p.id}-${p.ten}</option>
+          </c:forEach>
 				</form:select>
 			</div>
 			<div class="form-group">
 				<label class="lb">Số lượng Tồn</label>
 				<br>
-			<form:input class="frm" type="number" min="0" path="soLuongTon" />
+			<form:input class="frm" readonly="true" type="number" min="0" path="soLuongTon" />
 			<form:errors class="errors" path="soLuongTon"/>
 			</div>
 			<div class="form-group">
@@ -140,6 +133,12 @@
 			<input class="frm" type="file" name="photo">
 			<form:hidden path="anh"/>
 			</div>
+			<div class="form-group">
+			<label class="lb">Giá nhập cũ: <b style="color: orange"><f:formatNumber minFractionDigits="0" value="${gianhap.gia}" type="number"/> </b> vnd</label> <br>
+			<label class="lb">Thay đổi giá nếu nhập mới:</label> <br>
+			<input name="giaNhap" class="frm" type="number" min="1"/>
+				</div>
+				<br>
 			
 			<div class="form-group">
 			<br>

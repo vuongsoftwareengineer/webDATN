@@ -68,18 +68,19 @@
 				<form:hidden class="frm" path="username"/>
 				<form:hidden class="frm"  path="quyen" />
 				<form:hidden class="frm"  path="anh" />
-			
+				<form:hidden class="frm"  path="trangThai" />
+			<input hidden="true" name="temp" value= "${sessionScope.taikhoan.getPassword()}"/>
 			<div class="col-sm-6" style="background-color: white;margin-left: 370px">
 						<div class="form-group">
 							<i class="fa fa-lock" aria-hidden="true" style="margin-left: 12px"></i>
 							<label for="id"><b>Nhập mật khẩu cũ</b></label>
 							<input name="mkcu" type="password" class="frm" maxlength="20" name="password" required oninvalid="this.setCustomValidity('Xin vui lòng nhập mật khẩu của bạn !')"
- 							oninput="setCustomValidity('')"><p class="errors" style="color: red">${message1}</p>
-							
+ 							oninput="setCustomValidity('')">
+ 							<p class="errors" style="color: red">${message1}</p>
 							<br><i class="fa fa-lock" aria-hidden="true"></i>
 							<label for="id"><b>Nhập mật khẩu mới</b></label>
-							<form:input class="frm" path="password" />
-							<p class="errors" style="color: red">${tb1}</p>
+							<input name="mkmoi" type="password" class="frm" maxlength="20" name="password" required oninvalid="this.setCustomValidity('Xin vui lòng nhập mật khẩu của bạn !')"
+ 							oninput="setCustomValidity('')"><p class="errors" style="color: red">${tb1}</p>
 							
 							<br><i class="fa fa-lock" aria-hidden="true" style="margin-left: -28px"></i>
 							<label for="id"><b>Xác nhận mật khẩu mới</b></label>

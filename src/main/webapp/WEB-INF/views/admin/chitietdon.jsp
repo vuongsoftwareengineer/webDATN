@@ -55,32 +55,39 @@ body {
 					<thead>
 						<tr>
 		<th>Mã Chi Tiết Đơn Hàng</th>
-        <th>Mã Sản phẩm</th>
+         <th align="center">Sản phẩm</th>
+        <th>Ảnh Sản phẩm</th>
         <th>Số Lượng Đặt</th>
         <th>Mã Đơn Hàng</th>
         <th>Mã Tài Khoản</th>
+        <th>Thành tiền</th>
         <th>Ngày đặt</th>
-      </tr>
+       </tr>
     </thead>
     <tbody>
     <c:forEach var="p" items="${chitietdons}">
+     <c:forEach var="v" items="${sanphams}">
+		<c:if test="${v.id==p.idHH}">
       <tr>
         <td width="60px">${p.id}</td>
-        <td width="90px">${p.idHH}</td>
+        <td width="200px"><b>${p.idHH}</b>-${v.ten}</td>
+		<td width="180px"><img src="./images/${v.anh}" style="width: 50%">
         <td width="120px">${p.soLuong}</td>
         <td width="140px">${p.idPhieuDatHang}</td>
          <c:forEach var="t" items="${donhangs}">
         <c:if test="${p.idPhieuDatHang == t.id}">
         <td width="160px">${t.taiKhoanId}</td>
+        <td><f:formatNumber minFractionDigits="0" value="${v.gia*p.soLuong}" type="number"/>đ</td>
         <td width="190px"><f:formatDate pattern="dd-MM-yyyy" value="${t.ngayLap}"/></td></c:if>
          </c:forEach>
       	</tr>
+      	</c:if>
+      </c:forEach>
       </c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
-</div>
 </div>
 </body>
 </html>

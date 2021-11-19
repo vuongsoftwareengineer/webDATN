@@ -49,9 +49,11 @@ body {
  <h2 style="margin-left: 250px; font-style: italic; color: #8B4513"> Xin chào ${sessionScope.admin.getHoTen()}! </h2>
   <p style="margin-left: 250px; color: brown">Chào mừng bạn quay trở lại với trang quản trị của Website </p>
 		<div class="container">       <br>
-<h2 style="font-weight: bold;color: #FF6666">DANH SÁCH TÀI KHOẢN</h2>
-<a href="admin/themnv.html"><i class="far fa-plus-square"></i> Thêm nhân viên </a><h6 style="color: red">${message}</h6>
-			<div>
+<h2 style="font-weight: bold;color: #FF6666">DANH SÁCH TÀI KHOẢN</h2><h6 style="color: red">${message}</h6>
+<c:forEach var="v" items="${taikhoans}">
+<c:if test="${v.quyen == 'ADMIN'}"><a href="admin/themnv.html"><i class="far fa-plus-square"></i> Thêm nhân viên </a>
+			</c:if>
+			</c:forEach><div>
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr>
@@ -62,11 +64,14 @@ body {
         <th>Email</th>
         <th>Username</th>
         <th>Quyền</th>
+        <th>Trạng thái</th>
+        <th>Khóa/Mở khóa</th>
        	<th>Xóa</th>
       </tr>
     </thead>
     <tbody>
     <c:forEach var="p" items="${taikhoans}">
+    <c:if test="${p.quyen != 'ADMIN'}">
       <tr>
         <td>${p.id}</td>
         <td>${p.hoTen}</td>
@@ -75,8 +80,20 @@ body {
         <td>${p.email}</td>
         <td>${p.username}</td>
         <td>${p.quyen}</td>
-       <td><div align="center"><a href="admin/xoatk/${p.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn tài khoản này không?'))) return false;">Xóa</a></div></td> 
-			</tr>
+        <td><c:choose>
+				<c:when test="${p.trangThai==0}">Đã khóa</c:when>
+				<c:when test="${p.trangThai==1}">Hoạt động</c:when>
+				</c:choose>
+				</td>
+		<c:if test="${p.trangThai == 1}">
+        <td><div align="center"><a href="admin/capnhattk/${p.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn cập nhật khóa tài khoản này không?'))) return false;">Khóa</a></div></td> 
+     	</c:if>
+       <c:if test="${p.trangThai == 0}">
+        <td><div align="center"><a href="admin/capnhattk/${p.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn cập nhật mở khóa tài khoản này không?'))) return false;">Mở khóa</a></div></td> 
+     	<td><div align="center"><a href="admin/xoatk/${p.id}.html" onclick="if(!(confirm('Bạn có chắc chắn muốn xóa tài khoản này không?'))) return false;">Xóa</a></div></td> 
+     	</c:if>
+     		</tr>
+		</c:if>
       </c:forEach>
 					</tbody>
 				</table>

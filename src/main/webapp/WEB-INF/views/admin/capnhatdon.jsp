@@ -1,5 +1,8 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%-- <c:url value="http://localhost:8080/img" var="url"></c:url> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +57,6 @@
   <p>
     <a href="admin/thuonghieu.html"><i class="far fa-list-alt"></i>Thương hiệu sản phẩm</a>
     <a href="admin/theloai.html"><i class="far fa-list-alt"></i>Thể loại sản phẩm</a>
-    <a href="admin/taikhoan.html"><i class="far fa-list-alt"></i>Tài khoản người dùng</a>
     <a href="admin/tintuc.html"><i class="far fa-list-alt"></i>Tin tức</a>
     <a href="admin/phieunhaphang.html"><i class="far fa-list-alt"></i>Phiếu nhập hàng</a>
     <a href="admin/kiemtradon.html"><i class="far fa-list-alt"></i>Kiểm tra đơn hàng</a>
@@ -83,20 +85,29 @@
 				<br>
 				<form:input class="frm" readonly="true" path="tongTien" />
 			</div>
+			<form:hidden path="diachi" />
 			<div class="form-group">
-				<label class="lb">Trạng thái</label>
-				<br>
+			<c:if test="${donhang.trangThai <=2 && donhang.trangThai >-1}">
+			<label class="lb">Trạng thái</label>
 				<form:select path="trangThai">
-				<option value="0">Chờ xác nhận</option>
-				<option value="1">Đã xác nhận</option>
+				<option value="1">Xác nhận đơn hàng</option>
 				<option value="2">Đang giao hàng</option>
 				<option value="3">Đã hoàn thành</option>
-				<option value="-1">Đã hủy</option>
+				<option value="4">Giao hàng không thành công</option>
 				</form:select>
-				
-			</div>
-					<br>
+							<br>
 				<button class="btn" style="width: 50%">Xác nhận cập nhật đơn hàng</button>
+		
+				</c:if>
+				<c:if test="${donhang.trangThai >2 || donhang.trangThai <0}">
+				<label class="lb"><font color="red">Không thể cập nhật được trạng thái do đơn hàng: </font>
+				<c:choose>
+				<c:when test="${donhang.trangThai==3}"><b>Đã hoàn thành</b></c:when>
+				<c:when test="${donhang.trangThai==-1}"><b>Đã hủy</b></c:when>
+				<c:when test="${donhang.trangThai==4}"><b>Giao hàng không thành công</b></c:when>
+				</c:choose></label></c:if>
+				<br>	
+			</div>
 		</form:form>
 		</div>
 		</div>

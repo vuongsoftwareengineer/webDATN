@@ -90,12 +90,7 @@
 			<div class="form-group">
 				<label class="lb">Thể loại</label>
 				<form:select path="theLoaiId">
-				<option value="1">Thực phẩm chức năng</option>
-				<option value="2">Chăm sóc sức khỏe</option>
-				<option value="3">Vệ sinh nhà cửa</option>
-				<option value="4">Phòng dịch Covid</option>
-				<option value="5">Chăm sóc cơ thể</option>
-				<option value="6">Mẹ và bé</option>
+				<form:options items="${theloais}" itemValue="id" itemLabel="ten"/>
 				</form:select>
 			</div>
 			<div class="form-group">
@@ -113,17 +108,7 @@
 			<div class="form-group">
 				<label class="lb">Thương hiệu</label>
 				<form:select path="thuongHieuId">
-				<option value="82X">82X SAKURA</option>
-				<option value="AFRESH">AQUAFRESH</option>
-				<option value="CHU">CHUCHU BABY</option>
-				<option value="FINEJPA">FINE JAPAN</option>
-				<option value="IHA">IHADA</option>
-				<option value="OEM">OEM JAPAN</option>
-				<option value="KINO">KINOHIMITSU</option>
-				<option value="ORI">ORIHIRO</option>
-				<option value="PITA">PITTA</option>
-				<option value="TMIT">TOAMIT</option>
-				<option value="YUW">YUWA</option>
+				<form:options items="${thuonghieus}" itemValue="id" itemLabel="ten"/>
 				</form:select>
 			</div>
 			<div class="form-group">

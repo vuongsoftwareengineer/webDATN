@@ -54,21 +54,36 @@ body {
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr>
-			<th>Mã Chi Tiết Nhập</th>
-        <th>Mã Sản phẩm</th>
+		<th>Mã Chi Tiết Nhập</th>
+        <th align="center">Sản phẩm</th>
+        <th>Ảnh Sản phẩm</th>
         <th>Số Lượng Nhập</th>
         <th>Mã Phiếu Nhập</th>
+         <th>Mã Tài Khoản</th>
+        <th>Ngày lập đơn</th>
       </tr>
     </thead>
     <tbody>
     <c:forEach var="p" items="${chitietnhaps}">
+    <c:forEach var="t" items="${nhaphangs}">
+    <c:if test="${p.idPhieuNhapHang == t.id && t.trangThai==1}">
+    
+    <c:forEach var="v" items="${sanphams}">
+		<c:if test="${v.id==p.idhh}">
       <tr>
         <td width="60px">${p.id}</td>
-        <td width="90px">${p.idhh}</td>
+        <td width="200px"><b>${p.idhh}</b>-${v.ten}</td>
+		<td width="180px"><img src="./images/${v.anh}" style="width: 50%">
         <td width="120px">${p.soLuong}</td>
         <td width="140px">${p.idPhieuNhapHang}</td>
-       </tr>
-      </c:forEach>
+        <td width="160px">${t.taiKhoanId}</td>
+        <td width="190px"><f:formatDate pattern="dd-MM-yyyy" value="${t.ngayLap}"/></td>
+          </tr>
+         </c:if>
+         </c:forEach>
+         </c:if>
+    </c:forEach>
+    </c:forEach>
 					</tbody>
 				</table>
 			</div>
